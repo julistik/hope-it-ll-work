@@ -1,0 +1,135 @@
+@font-face {
+    font-family: Inter;
+    src: url(fonts/Inter-V.ttf);
+}
+
+body {
+    margin: 0 auto;
+    background-color: #000000;
+    font-family: Inter;
+    color: white;
+}
+
+/**
+ * Sticky navigation
+ */
+.main-menu {
+  width: 100%;
+  height: 80px;
+  background-color: #000000;
+  position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    margin-top: 0px;
+    border-top: 0px;
+    padding-top: 0px;
+    z-index: 3;
+}
+
+    
+
+/**
+ * Display lists on a single line.
+ */
+.list-inline {
+    list-style: none;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    padding: 0;
+    margin: 0;
+}
+
+.list-inline > li {
+    display: inline-block;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.active {
+    text-decoration: none;
+    font-family: Inter, 'Comic Sans MS';
+    font-size: 25;
+    font-weight: normal;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    top: 20px;
+    left: 333px;
+    vertical-align: middle;
+}
+.activ {
+    text-decoration: none;
+    font-family: Inter, 'Comic Sans MS';
+    font-size: 25;
+    font-weight: normal;
+    color: #00ffcc;
+    text-decoration: none;
+}
+
+
+.list-inline > li:before {
+    content: "\200B"; /* 1 */
+    position: absolute; /* 2 */
+}
+
+.we-know {
+    position: relative;
+}
+
+.we-know #text-on-img {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: xx-large;
+    color: aliceblue;
+    font-weight: bolder;
+}
+  
+.container {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+
+}
+h1 {
+    font-size: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+.input-group {
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #606867;
+    border-radius: 4px;
+}
+.btn {
+    background-color: #00ffcc;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+.btn:hover {
+    background-color: #00ffcc;
+}
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+}

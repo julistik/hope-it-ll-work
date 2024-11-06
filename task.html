@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Решение алгоритмической задачи</title>
+    <link rel="stylesheet" href="style_task.css">
+    
+</head>
+<body>
+    <div class="main-menu">
+        <nav>
+            <ul class="list-inline">
+                <li><a href="pasport1.html" class="active">Паспорт</a></li>
+                <li><a href="passport.html" class="active">Паспорт new</b></a></li>
+                <li><a href="index.html#teachers" class="active">Преподаватели</a></li>
+                <li><a href="index.html" class="active"><img src="pictures/p01.png" height="50"></a></li>
+                <li><a href="index.html#forms" class="active">Хочу в ЛМШ!</a></li>
+                <li><a href="gallery.html" class="active">Галерея</a></li>
+                <li><a href="task.html" class="active"><b>Задача</b></a></li>
+            </ul>
+        </nav>
+  </div> 
+    <div class="container" style="margin: auto;">
+        <h1>Решение алгоритмической задачи</h1>
+        <p>Даны вещественные положительные числа a, b, c, d. Выясните, может ли прямоугольник со сторонами a, b уместиться внутри прямоугольника со сторонами c, d так, чтобы каждая сторона внутреннего прямоугольника была
+            параллельна или перпендикулярна стороне внешнего прямоугольника.</p>
+        <div class="input-group">
+            <label for="a">Введите a (сторона внутреннего прямоугольника):</label>
+            <input type="number" id="a" min="0" step="1" required>
+        </div>
+        <div class="input-group">
+            <label for="b">Введите b (сторона внутреннего прямоугольника):</label>
+            <input type="number" id="b" min="0" step="1" required>
+        </div>
+        <div class="input-group">
+            <label for="c">Введите c (сторона внешнего прямоугольника):</label>
+            <input type="number" id="c" min="0" step="1" required>
+        </div>
+        <div class="input-group">
+            <label for="d">Введите d (сторона внешнего прямоугольника):</label>
+            <input type="number" id="d" min="0" step="1" required>
+        </div>
+        <button class="btn" onclick="checkFit()">Проверить</button>
+        <br>
+        <br>
+        <button class="btn" onclick="send()">Отправить на сервер</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        let fits = false;
+
+        function checkFit() {
+            // Получаем значения сторон
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            const c = parseFloat(document.getElementById('c').value);
+            const d = parseFloat(document.getElementById('d').value);
+
+            // Проверяем, может ли внутренний прямоугольник уместиться в внешнем
+            fits = (a <= c && b <= d) || (a <= d && b <= c);
+
+            // Выводим результат
+            const resultElement = document.getElementById('result');
+            if (fits) {
+                resultElement.textContent = "Прямоугольник помещается";
+                resultElement.style.color = "#00ffcc";
+            } else {
+                resultElement.textContent = "Прямоугольник не помещается";
+                resultElement.style.color = "#ff0044";
+            }
+        }
+
+        function send() {
+            // Формируем URL с параметрами
+            const a = document.getElementById('a').value;
+            const b = document.getElementById('b').value;
+            const c = document.getElementById('c').value;
+            const d = document.getElementById('d').value;
+            const resultText = fits ? "fits" : "don't fits";
+
+            const url = `https://www.bing.com/search?q=search&formulation=Помещается+ли+внутренний+прямоугольник+во+внешний?+Если+помещается+-+отправить+все+на+сервер&a=${a}&b=${b}&c=${c}&d=${d}&result=${encodeURIComponent(resultText)}`;
+
+            // Открываем URL в новом окне
+            window.open(url, '_blank');
+        }
+
+        // Привязываем функции к кнопкам
+        document.getElementById("verify").addEventListener('click', checkFit);
+        document.getElementById("send").addEventListener('click', send);
+        </script>
+</body>
+</html>
